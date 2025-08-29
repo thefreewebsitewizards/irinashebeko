@@ -5,8 +5,8 @@
     --accent-rose: #d4a5a0;
     --nude-beige: #f7f3f0;
     --soft-brown: #8b6f5c;
-    --text-dark: #5a4a42;
-    --text-light: #8b7d75;
+    --text-dark: #3a2a22;
+    --text-light: #6b5d55;
     --white: #fefefe;
 }
 
@@ -33,7 +33,6 @@ html {
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .page-loader.hidden {
@@ -50,19 +49,7 @@ html {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 20px;
-    opacity: 0;
-    animation: loaderFade 2s ease-in-out infinite alternate;
-}
-
-@keyframes loaderFade {
-    0% {
-        opacity: 0.3;
-        transform: translateY(5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
 }
 
 body {
@@ -71,19 +58,7 @@ body {
     color: var(--text-dark);
     background-color: var(--nude-beige);
     overflow-x: hidden;
-    opacity: 0;
-    animation: pageLoad 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes pageLoad {
-    0% {
-        opacity: 0;
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
+    opacity: 1;
 }
 
 h1, h2, h3 {
@@ -106,7 +81,24 @@ header {
     background: rgba(247, 243, 240, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Translucent navbar when in hero section */
+header.translucent {
+    background: transparent;
+    backdrop-filter: none;
+}
+
+header.translucent .logo,
+header.translucent .nav-menu a {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+header.translucent .hamburger span {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .navbar {
@@ -128,12 +120,9 @@ header {
     font-weight: 600;
     color: var(--soft-brown);
     text-decoration: none;
-    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.logo:hover {
-    opacity: 0.7;
-}
+/* Logo hover effect removed */
 
 .nav-menu {
     display: flex;
@@ -145,13 +134,10 @@ header {
     text-decoration: none;
     color: var(--text-dark);
     font-size: 0.9rem;
-    transition: opacity 0.3s ease;
     position: relative;
 }
 
-.nav-menu a:hover {
-    opacity: 0.7;
-}
+/* Nav menu hover effect removed */
 
 .nav-menu a::after {
     content: '';
@@ -161,12 +147,9 @@ header {
     width: 0;
     height: 1px;
     background: var(--accent-rose);
-    transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.nav-menu a:hover::after {
-    width: 100%;
-}
+/* Nav menu underline hover effect removed */
 
 .hamburger {
     display: none;
@@ -179,23 +162,39 @@ header {
     width: 25px;
     height: 2px;
     background: var(--soft-brown);
-    transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(212, 165, 160, 0.3), rgba(232, 213, 209, 0.4)),
-                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop');
-    background-size: cover;
-    background-position: center;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
-    position: relative;
-    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(212, 165, 160, 0.3), rgba(232, 213, 209, 0.4));
+    z-index: -1;
 }
 
 .hero-content {
@@ -203,206 +202,155 @@ header {
     padding: 0 20px;
 }
 
-.initials {
-    font-size: clamp(3rem, 8vw, 8rem);
+.name {
+    font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 400;
     margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeInUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+    opacity: 1;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.name {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeInUp 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 1.2s;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+/* Typing Animation */
+.typing-animation {
+    overflow: hidden;
+    border-right: 3px solid var(--white);
+    white-space: nowrap;
+    animation: blink-cursor 1s infinite;
+}
+
+.typing-animation.typing {
+    animation: blink-cursor 1s infinite;
+}
+
+.typing-animation.finished {
+    border-right: none;
+}
+
+@keyframes blink-cursor {
+    0%, 50% { border-color: var(--white); }
+    51%, 100% { border-color: transparent; }
 }
 
 .subtitle {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-style: italic;
-    opacity: 0;
-    animation: fadeInUp 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 1.6s;
+    opacity: 1;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(60px) scale(0.9);
-        filter: blur(4px);
-    }
-    50% {
-        opacity: 0.7;
-        transform: translateY(-10px) scale(1.02);
-        filter: blur(1px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
-}
-
-/* Elegant Scroll Animation Classes */
+/* Luxurious Animations */
 .scroll-animate {
     opacity: 0;
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform, opacity;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(10px);
 }
 
 .scroll-animate.animate {
     opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
 }
 
-.fade-in {
-    animation: fadeIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+/* Animation variants */
+.scroll-animate[data-animation="fade-in"] {
+    transform: translateY(0);
+    opacity: 0;
+    filter: blur(8px);
 }
 
-.slide-up {
-    animation: slideUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.scroll-animate[data-animation="fade-in"].animate {
+    opacity: 1;
+    filter: blur(0px);
 }
 
-.slide-left {
-    animation: slideLeft 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+.scroll-animate[data-animation="slide-up"] {
+    transform: translateY(80px);
+    filter: blur(6px);
 }
 
-.slide-right {
-    animation: slideRight 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+.scroll-animate[data-animation="slide-up"].animate {
+    transform: translateY(0);
+    filter: blur(0px);
 }
 
-.scale-in {
-    animation: scaleIn 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+.scroll-animate[data-animation="scale-in"] {
+    transform: scale(0.85) translateY(30px);
+    opacity: 0;
+    filter: blur(5px);
 }
 
-.stagger-1 {
-    animation-delay: 0.15s;
+.scroll-animate[data-animation="scale-in"].animate {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    filter: blur(0px);
 }
 
-.stagger-2 {
-    animation-delay: 0.3s;
+.scroll-animate[data-animation="slide-right"] {
+    transform: translateX(-80px);
+    opacity: 0;
+    filter: blur(8px);
 }
 
-.stagger-3 {
-    animation-delay: 0.45s;
+.scroll-animate[data-animation="slide-right"].animate {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0px);
 }
 
-.stagger-4 {
-    animation-delay: 0.6s;
+.scroll-animate[data-animation="slide-left"] {
+    transform: translateX(80px);
+    opacity: 0;
+    filter: blur(8px);
 }
 
-/* Elegant Scroll Animation Keyframes */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        filter: blur(2px);
-    }
-    50% {
-        opacity: 0.6;
-        filter: blur(1px);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
+.scroll-animate[data-animation="slide-left"].animate {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0px);
 }
 
-@keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(80px) scale(0.95);
-        filter: blur(3px);
-    }
-    60% {
-        opacity: 0.8;
-        transform: translateY(-5px) scale(1.01);
-        filter: blur(0.5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
+.scroll-animate[data-animation="luxury-stagger"] {
+    transform: translateY(60px);
+    opacity: 0;
+    filter: blur(10px);
 }
 
-@keyframes slideLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-80px) rotateY(15deg);
-        filter: blur(2px);
-    }
-    70% {
-        opacity: 0.9;
-        transform: translateX(5px) rotateY(-2deg);
-        filter: blur(0.5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) rotateY(0deg);
-        filter: blur(0);
-    }
+.scroll-animate[data-animation="luxury-stagger"].animate {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0px);
 }
 
-@keyframes slideRight {
-    0% {
-        opacity: 0;
-        transform: translateX(80px) rotateY(-15deg);
-        filter: blur(2px);
-    }
-    70% {
-        opacity: 0.9;
-        transform: translateX(-5px) rotateY(2deg);
-        filter: blur(0.5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0) rotateY(0deg);
-        filter: blur(0);
-    }
+/* Elegant hover effects */
+.scroll-animate[data-animation="luxury-stagger"] {
+    transition: all 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes scaleIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.6) rotate(-5deg);
-        filter: blur(4px);
-    }
-    50% {
-        opacity: 0.7;
-        transform: scale(1.05) rotate(1deg);
-        filter: blur(1px);
-    }
-    80% {
-        opacity: 0.95;
-        transform: scale(0.98) rotate(-0.5deg);
-        filter: blur(0.5px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-        filter: blur(0);
-    }
+.scroll-animate[data-animation="luxury-stagger"]:nth-child(1) { transition-delay: 0.1s; }
+.scroll-animate[data-animation="luxury-stagger"]:nth-child(2) { transition-delay: 0.2s; }
+.scroll-animate[data-animation="luxury-stagger"]:nth-child(3) { transition-delay: 0.3s; }
+.scroll-animate[data-animation="luxury-stagger"]:nth-child(4) { transition-delay: 0.4s; }
+
+/* Subtle floating animation for continuous elegance */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
 
-@keyframes staggerFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(60px) scale(0.9);
-        filter: blur(3px);
-    }
-    60% {
-        opacity: 0.8;
-        transform: translateY(-8px) scale(1.02);
-        filter: blur(0.5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
 }
 
 /* About Section */
@@ -430,14 +378,9 @@ header {
     object-fit: cover;
     object-position: center top;
     box-shadow: 0 10px 30px rgba(212, 165, 160, 0.3);
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
 }
 
-.about-image img:hover {
-    transform: scale(1.02) rotate(0.5deg);
-    filter: brightness(1.05) saturate(1.1);
-    box-shadow: 0 15px 40px rgba(212, 165, 160, 0.4);
-}
+/* About image hover effect removed */
 
 .about-content h2 {
     font-size: 2.5rem;
@@ -465,12 +408,9 @@ header {
     padding: 30px;
     background: var(--secondary-pink);
     border-radius: 8px;
-    transition: transform 0.3s ease;
 }
 
-.stat-box:hover {
-    transform: translateY(-5px);
-}
+/* Stat box hover effect removed */
 
 .stat-number {
     display: block;
@@ -486,16 +426,20 @@ header {
     margin-top: 0.5rem;
 }
 
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    display: block;
+}
+
 /* iPhone 13 Mockup Styles */
 .iphone-mockup {
     display: inline-block;
     margin: 0 20px;
-    transition: transform 0.3s ease;
 }
 
-.iphone-mockup:hover {
-    transform: translateY(-5px);
-}
+/* iPhone mockup hover effect removed */
 
 .mockup-frame {
     position: relative;
@@ -534,6 +478,38 @@ header {
     object-fit: cover;
 }
 
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.combined-content-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.play-button:hover {
+    opacity: 1;
+}
+
+.play-button.hidden {
+    display: none;
+}
+
 .review-title, .testimonial-caption {
     position: absolute;
     bottom: 20px;
@@ -547,74 +523,140 @@ header {
     text-align: center;
 }
 
-/* Restaurant Reviews Section */
-.restaurant-reviews {
-    padding: 100px 0;
+/* Restaurant Reviews & Recipe Videos Combined Section */
+.restaurant-reviews-recipes {
+    padding: 100px 120px;
     background: var(--nude-beige);
 }
 
-.restaurant-reviews h2 {
+.restaurant-reviews-recipes h2 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 60px;
     color: var(--soft-brown);
 }
 
-.reviews-container {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    padding: 20px 0;
-    justify-content: center;
-    flex-wrap: wrap;
+/* Brand Contents Section */
+.brand-contents {
+    padding: 100px 120px;
+    background: var(--secondary-pink);
 }
 
-.reviews-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.reviews-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.reviews-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-}
-
-/* Recipes Section */
-.recipes {
-    padding: 100px 0;
-    background: var(--primary-pink);
-}
-
-.recipes h2 {
+.brand-contents h2 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 60px;
     color: var(--soft-brown);
 }
 
-.recipes-container {
+.combined-content-container {
     display: flex;
     gap: 30px;
-    overflow-x: auto;
-    padding: 20px 0;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: hidden;
+    padding: 20px 120px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    position: relative;
+    width: calc(450% + 180px);
+    will-change: transform;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-.recipes-container::-webkit-scrollbar {
+.restaurant-reviews-recipes,
+.brand-contents {
+    position: relative;
+}
+
+.restaurant-reviews-recipes .blur-overlay.left,
+.restaurant-reviews-recipes .blur-overlay.right,
+.brand-contents .blur-overlay.left,
+.brand-contents .blur-overlay.right {
+    position: absolute;
+    top: 120px;
+    bottom: 20px;
+    width: 120px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.restaurant-reviews-recipes .blur-overlay.right {
+    right: 0;
+    background: linear-gradient(270deg, rgba(255,245,240,1) 0%, rgba(255,245,240,0) 100%);
+}
+
+.restaurant-reviews-recipes .blur-overlay.left {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255,245,240,1) 0%, rgba(255,245,240,0) 100%);
+}
+
+.brand-contents .blur-overlay.right {
+    right: 0;
+    background: linear-gradient(270deg, var(--secondary-pink) 0%, rgba(232, 213, 209, 0.9) 60%, transparent 100%);
+}
+
+.brand-contents .blur-overlay.left {
+    left: 0;
+    background: linear-gradient(90deg, var(--secondary-pink) 0%, rgba(232, 213, 209, 0.9) 60%, transparent 100%);
+}
+
+.combined-content-container.carousel-active {
+    animation: carousel-scroll 90s linear infinite;
+}
+
+.brand-contents .combined-content-container.carousel-active {
+    animation: brand-carousel-scroll 90s linear infinite;
+}
+
+.combined-content-container.carousel-paused {
+    animation-play-state: paused;
+} 
+
+/* iPhone mockup interaction styles */
+.iphone-mockup {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.iphone-mockup.mockup-clicked {
+    transform: scale(0.98);
+}
+
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes brand-carousel-scroll {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+.combined-content-container::-webkit-scrollbar {
+    display: none; /* WebKit */
+}
+
+.combined-content-container::-webkit-scrollbar {
     height: 8px;
 }
 
-.recipes-container::-webkit-scrollbar-track {
+.combined-content-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
 }
 
-.recipes-container::-webkit-scrollbar-thumb {
+.combined-content-container::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
 }
@@ -632,7 +674,7 @@ header {
     text-align: center;
 }
 
-.review-title-below, .recipe-title-below {
+.review-title-below, .recipe-title-below, .brand-title-below {
     margin-top: 15px;
     font-size: 1rem;
     font-style: italic;
@@ -640,6 +682,15 @@ header {
     text-align: center;
     background: none;
     padding: 0;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    line-height: 1.3;
+    display: block;
+    width: 100%;
 }
 
 /* Testimonials Section */
@@ -668,13 +719,9 @@ header {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s ease, filter 0.6s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
+/* Service card hover effect removed */
 
 .service-card h3 {
     color: var(--accent-rose);
@@ -687,6 +734,18 @@ header {
     color: var(--soft-brown);
     line-height: 1.6;
     font-size: 0.95rem;
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
 }
 
 .testimonials-grid {
@@ -725,29 +784,39 @@ header {
 }
 
 .brand-carousel-container {
-    overflow: hidden;
-    width: 100%;
-    padding: 20px 0;
-    margin-top: 50px;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+        overflow: hidden;
+        width: 100%;
+        padding: 0;
+        margin-top: 50px;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative;
+    }
+
+.brand-carousel-container::before,
+.brand-carousel-container::after {
+    display: none;
+}
+
+.brand-carousel-container .blur-overlay {
+    display: none;
 }
 
 .brand-carousel {
     display: flex !important;
-    animation: scroll 30s linear infinite;
     width: calc(300% + 120px);
     opacity: 1 !important;
     visibility: visible !important;
+    animation: brand-carousel-scroll 60s linear infinite;
 }
 
-@keyframes scroll {
+@keyframes brand-carousel-scroll {
     0% {
-        transform: translateX(0);
+        transform: translateX(-33.33%);
     }
     100% {
-        transform: translateX(-33.333%);
+        transform: translateX(0);
     }
 }
 
@@ -758,7 +827,6 @@ header {
     padding: 20px;
     border-radius: 15px;
     background: transparent;
-    transition: all 0.3s ease;
     height: 120px;
     min-width: 200px;
     margin-right: 30px;
@@ -768,25 +836,18 @@ header {
     visibility: visible !important;
 }
 
-.brand-logo:hover {
-    transform: translateY(-8px) scale(1.02);
-    filter: brightness(1.1) saturate(1.2);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
+/* Brand logo hover effect removed */
 
 .brand-logo img {
     max-width: 100%;
     max-height: 80px;
     object-fit: contain;
     filter: grayscale(0%);
-    transition: filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     opacity: 1;
     display: block;
 }
 
-.brand-logo:hover img {
-    filter: grayscale(0%);
-}
+/* Brand logo image hover effect removed */
 
 .product-grid {
     display: grid !important;
@@ -804,7 +865,6 @@ header {
     height: 300px;
     object-fit: cover;
     border-radius: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     display: block !important;
     visibility: visible !important;
@@ -813,11 +873,7 @@ header {
     z-index: 3;
 }
 
-.brand-grid img:hover, .product-grid img:hover {
-    transform: scale(1.08) rotate(1deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    filter: brightness(1.1) contrast(1.05) saturate(1.15);
-}
+/* Brand grid and product grid hover effects removed */
 
 /* Footer */
 footer {
@@ -843,14 +899,11 @@ footer {
 }
 
 .contact-info a {
-    color: var(--accent-rose);
+    color: white !important;
     text-decoration: none;
-    transition: opacity 0.3s ease;
 }
 
-.contact-info a:hover {
-    opacity: 0.8;
-}
+/* Contact info link hover effect removed */
 
 .social-links {
     display: flex;
@@ -866,13 +919,10 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: opacity 0.3s ease;
     font-size: 0.9rem;
 }
 
-.social-links a:hover {
-    opacity: 0.7;
-}
+/* Social links hover effect removed */
 
 footer p {
     font-size: 0.9rem;
@@ -900,7 +950,6 @@ footer p {
         background-color: rgba(255, 255, 255, 0.95);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         backdrop-filter: blur(10px);
         padding: 2rem 0;
@@ -920,14 +969,27 @@ footer p {
         gap: 20px;
     }
 
-    .reviews-container {
-        flex-direction: column;
-        align-items: center;
+    .combined-content-container {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 20px 20px;
+        width: calc(800% + 160px);
+        gap: 20px;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
-    .recipes-container {
-        flex-direction: column;
-        align-items: center;
+    .restaurant-reviews-recipes,
+    .brand-contents {
+        padding: 60px 20px;
+    }
+
+    .restaurant-reviews-recipes .blur-overlay.left,
+    .restaurant-reviews-recipes .blur-overlay.right,
+    .brand-contents .blur-overlay.left,
+    .brand-contents .blur-overlay.right {
+        width: 20px;
     }
 
     .testimonials-grid {
@@ -958,18 +1020,38 @@ footer p {
     }
     
     .brand-carousel {
-        animation: scroll 15s linear infinite;
+        /* Animation removed */
     }
 
     .mockup-frame {
-        width: 180px;
-        height: 360px;
-        border-radius: 30px;
+        width: 140px;
+        height: 280px;
+        border-radius: 28px;
+        padding: 5px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
     }
 
     .mockup-notch {
-        width: 100px;
-        height: 20px;
+        width: 55px;
+        height: 12px;
+        top: 15px;
+        border-radius: 8px;
+    }
+
+    .mockup-content {
+        border-radius: 23px;
+    }
+
+    .iphone-mockup {
+        margin: 0 10px;
+    }
+
+    .review-title-below, .recipe-title-below, .brand-title-below {
+        font-size: 0.9rem;
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
 }
 
@@ -978,12 +1060,29 @@ footer p {
         padding: 0 15px;
     }
 
-    .about, .restaurant-reviews, .recipes, .testimonials, .brand-collabs, .brand-showcase {
-        padding: 60px 0;
+    .about, .restaurant-reviews-recipes, .testimonials, .brand-collabs, .brand-showcase {
+        padding: 40px 15px;
     }
 
-    .about-content h2, .restaurant-reviews h2, .recipes h2, .testimonials h2, .brand-collabs h2, .brand-showcase h2 {
-        font-size: 2rem;
+    .about-content h2, .restaurant-reviews-recipes h2, .testimonials h2, .brand-collabs h2, .brand-showcase h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .combined-content-container {
+        padding: 15px 15px;
+        width: calc(1000% + 120px);
+        gap: 15px;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .restaurant-reviews-recipes .blur-overlay.left,
+    .restaurant-reviews-recipes .blur-overlay.right,
+    .brand-contents .blur-overlay.left,
+    .brand-contents .blur-overlay.right {
+        width: 15px;
     }
 
     .brand-logo {
@@ -998,13 +1097,69 @@ footer p {
     }
     
     .brand-carousel {
-        animation: scroll 12s linear infinite;
+        /* Animation removed */
     }
 
     .mockup-frame {
-        width: 160px;
-        height: 320px;
-        border-radius: 25px;
+        width: 112px;
+        height: 228px;
+        border-radius: 22px;
+        padding: 4px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .mockup-notch {
+        width: 45px;
+        height: 10px;
+        top: 12px;
+        border-radius: 6px;
+    }
+
+    .mockup-content {
+        border-radius: 18px;
+    }
+
+    .iphone-mockup {
+        margin: 0 8px;
+    }
+
+    .review-title-below, .recipe-title-below, .brand-title-below {
+        font-size: 0.8rem;
+        margin-top: 10px;
+        word-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.3;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Ensure carousel animations continue on mobile */
+    .combined-content-container.carousel-active {
+        animation-duration: 60s;
+    }
+    
+    .brand-contents .combined-content-container.carousel-active {
+        animation-duration: 60s;
+    }
+}
+
+@media (max-width: 320px) {
+    .review-title-below, .recipe-title-below, .brand-title-below {
+        font-size: 0.7rem;
+        margin-top: 8px;
+        word-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.2;
+        display: block;
+        max-width: 100%;
+        width: 100%;
     }
 }
 

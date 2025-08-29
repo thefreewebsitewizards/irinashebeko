@@ -13,22 +13,22 @@
     <!-- Page Loader -->
     <div class="page-loader">
         <div class="loader-content">
-            <div class="loader-text">Irina Shebeko</div>
+            <div class="loader-text">Irina Sebeko</div>
         </div>
     </div>
     
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <a href="#home" class="logo">Irina Shebeko</a>
+                <a href="#home" class="logo">Irina Sebeko</a>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#restaurant-reviews">Restaurant Reviews</a></li>
-                    <li><a href="#recipes">Recipes</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#restaurant-reviews-recipes">Reviews</a></li>
+                    <li><a href="#brand-contents">Contents</a></li>
                     <li><a href="#testimonials">Services</a></li>
-                    <li><a href="#brand-collabs">Brand Collabs</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#brand-showcase">Gallery</a></li>
+                    <li><a href="#contact">Contacts</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -41,9 +41,12 @@
 
     <main>
         <section id="home" class="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="images/hero_bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="hero-content">
-                <h1 class="initials">IS</h1>
-                <h2 class="name">Irina Shebeko</h2>
+                <h1 class="name typing-animation" data-text="Irina Sebeko"></h1>
                 <p class="subtitle">London Lifestyle Creator</p>
             </div>
         </section>
@@ -52,7 +55,7 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image scroll-animate" data-animation="slide-left">
-                        <img src="images/about_pic.jpg" alt="Irina Shebeko" crossorigin="anonymous">
+                        <img src="images/about_pic.jpg" alt="Irina Sebeko" crossorigin="anonymous">
                     </div>
                     <div class="about-content scroll-animate" data-animation="slide-right">
                         <h2>About Irina</h2>
@@ -62,15 +65,18 @@
                     </div>
                 </div>
                 <div class="stats">
-                    <div class="stat-box scroll-animate" data-animation="scale-in" data-delay="0.1s">
+                    <div class="stat-box scroll-animate" data-animation="luxury-stagger">
+                        <div class="stat-icon">✨</div>
                         <span class="stat-number">25+</span>
                         <span class="stat-label">Brand Collabs</span>
                     </div>
-                    <div class="stat-box scroll-animate" data-animation="scale-in" data-delay="0.2s">
+                    <div class="stat-box scroll-animate" data-animation="luxury-stagger">
+                        <div class="stat-icon">💫</div>
                         <span class="stat-number">100+</span>
                         <span class="stat-label">Reviews</span>
                     </div>
-                    <div class="stat-box scroll-animate" data-animation="scale-in" data-delay="0.3s">
+                    <div class="stat-box scroll-animate" data-animation="luxury-stagger">
+                        <div class="stat-icon">🌸</div>
                         <span class="stat-number">London</span>
                         <span class="stat-label">Based</span>
                     </div>
@@ -82,28 +88,30 @@
             <div class="container">
                 <h2>Brand Collaborations</h2>
                 <div class="brand-carousel-container">
-                    <div class="brand-carousel">
+                <div class="blur-overlay left"></div>
+                <div class="blur-overlay right"></div>
+                <div class="brand-carousel">
                         <!-- First set -->
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand1.png" alt="Brand 1">
                         </div>
                        
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand3.png" alt="Brand 3">
                         </div>
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand4.png" alt="Brand 4">
                         </div>
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand5.png" alt="Brand 5">
                         </div>
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand6.png" alt="Brand 6">
                         </div>
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand7.png" alt="Brand 7">
                         </div>
-                        <div class="brand-logo">
+                        <div class="brand-logo scroll-animate" data-animation="fade-in">
                             <img src="images/brand8.png" alt="Brand 8">
                         </div>
                         <!-- Second set for seamless loop -->
@@ -159,18 +167,29 @@
             </div>
         </section>
 
-        <section id="restaurant-reviews" class="restaurant-reviews">
+        <section id="restaurant-reviews-recipes" class="restaurant-reviews-recipes">
             <div class="container">
-                <h2>Restaurant Reviews</h2>
-                <div class="reviews-container">
+                <h2>Restaurant reviews & Recipe videos</h2>
+                <div class="blur-overlay left"></div>
+                <div class="blur-overlay right"></div>
+                <div class="combined-content-container carousel-active">
+                    <!-- Restaurant Reviews -->
                     <div class="iphone-mockup">
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/restaurant_TwoMoreBeers.MOV" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_TwoMoreBeers.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="review-title-below">Two More Beers</div>
@@ -179,10 +198,18 @@
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/restaurant_UMU_Mayfair.mov" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_UMU_Mayfair.mov" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="review-title-below">UMU Mayfair</div>
@@ -191,30 +218,39 @@
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/restaurant_TwoMoreBeers.MOV" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_Scotts Richmond.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="review-title-below">Two More Beers</div>
+                        <div class="review-title-below">Scotts Richmond</div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="recipes" class="recipes">
-            <div class="container">
-                <h2>Recipe Videos</h2>
-                <div class="recipes-container">
+                    <!-- Recipe Videos -->
                     <div class="iphone-mockup">
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/recipe_spacegoods_banana_bread.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_spacegoods_banana_bread.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="recipe-title-below">Spacegoods Banana Bread</div>
@@ -223,10 +259,18 @@
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/recipe_spacegoods_strawberry_bread.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_spacegoods_strawberry_bread.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="recipe-title-below">Spacegoods Strawberry Bread</div>
@@ -235,10 +279,18 @@
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/recipe_urban_noodle_ramen.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_urban_noodle_ramen.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="recipe-title-below">Urban Noodle Ramen</div>
@@ -247,10 +299,18 @@
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/recipe_ocado_rabbit.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_ocado_rabbit.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="recipe-title-below">Ocado Rabbit Recipe</div>
@@ -259,13 +319,596 @@
                         <div class="mockup-frame">
                             <div class="mockup-notch"></div>
                             <div class="mockup-content">
-                                <video controls loop playsinline>
-                                    <source src="images/recipe_full_long_cake_style_recipe.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_full_long_cake_style_recipe.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="recipe-title-below">Full Long Cake Style Recipe</div>
+                    </div>
+                    <!-- Duplicate set for seamless carousel -->
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_TwoMoreBeers.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title-below">Two More Beers</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_UMU_Mayfair.mov" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title-below">UMU Mayfair</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_Scotts Richmond.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title-below">Scotts Richmond</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_spacegoods_banana_bread.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Spacegoods Banana Bread</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_spacegoods_strawberry_bread.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Spacegoods Strawberry Bread</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_urban_noodle_ramen.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Urban Noodle Ramen</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_ocado_rabbit.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Ocado Rabbit Recipe</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_full_long_cake_style_recipe.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Full Long Cake Style Recipe</div>
+                    </div>
+                    <!-- Third set for ultra-smooth endless scrolling -->
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_TwoMoreBeers.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title-below">Two More Beers</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_UMU_Mayfair.mov" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title-below">UMU Mayfair</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/restaurant_Scotts Richmond.MOV" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title-below">Scotts Richmond</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_spacegoods_banana_bread.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Spacegoods Banana Bread</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_spacegoods_strawberry_bread.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Spacegoods Strawberry Bread</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_urban_noodle_ramen.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Urban Noodle Ramen</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_ocado_rabbit.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Ocado Rabbit Recipe</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/recipe_full_long_cake_style_recipe.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recipe-title-below">Full Long Cake Style Recipe</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="brand-contents" class="brand-contents">
+            <div class="container">
+                <h2>Brand contents</h2>
+                <div class="blur-overlay left"></div>
+                <div class="blur-overlay right"></div>
+                <div class="combined-content-container carousel-active">
+                    <!-- Brand Collaboration Videos -->
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Energy boosting secret</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Chocolate Astro Dust</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Iced lattes</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Freshest roses</div>
+                    </div>
+                    <!-- Second set for seamless carousel -->
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Energy boosting secret</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Chocolate Astro Dust</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Iced lattes</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Freshest roses</div>
+                    </div>
+                    <!-- Third set for ultra-smooth endless scrolling -->
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Energy boosting secret</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Chocolate Astro Dust</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Iced lattes</div>
+                    </div>
+                    <div class="iphone-mockup">
+                        <div class="mockup-frame">
+                            <div class="mockup-notch"></div>
+                            <div class="mockup-content">
+                                <div class="video-container">
+                                    <video loop playsinline>
+                                        <source src="images/collab4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="play-button">
+                                        <svg width="60" height="60" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                            <polygon points="22,18 22,42 42,30" fill="#333"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brand-title-below">Freshest roses</div>
                     </div>
                 </div>
             </div>
@@ -275,19 +918,23 @@
             <div class="container">
                 <h2>My Services</h2>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card scroll-animate" data-animation="luxury-stagger">
+                        <div class="service-icon">💎</div>
                         <h3>UGC & Paid Ads</h3>
                         <p>Creating authentic user-generated content and compelling paid advertisements that convert. From product reviews to brand storytelling.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card scroll-animate" data-animation="luxury-stagger">
+                        <div class="service-icon">🥂</div>
                         <h3>Restaurant Reviews</h3>
                         <p>Honest reviews of London's hottest spots including Two More Beers, UMU Mayfair, Gigi's Bar Farringdon, and many more hidden gems.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card scroll-animate" data-animation="luxury-stagger">
+                        <div class="service-icon">🎥</div>
                         <h3>Video Editing</h3>
                         <p>Professional video editing using CapCut for brands, creating engaging content that tells your story beautifully.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card scroll-animate" data-animation="luxury-stagger">
+                        <div class="service-icon">🌹</div>
                         <h3>Event Promotion</h3>
                         <p>PR event coverage and promotion, bringing your events to life through engaging content and authentic storytelling.</p>
                     </div>
@@ -299,11 +946,14 @@
             <div class="container">
                 <h2>Brand Showcase</h2>
                 <div class="product-grid" style="display: grid !important; visibility: visible !important; opacity: 1 !important; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; gap: 20px !important;">
-                    <img src="images/brandShowcase1.jpg" alt="Brand Showcase 1" crossorigin="anonymous">
-                    <img src="images/brandShowcase2.png" alt="Brand Showcase 2" crossorigin="anonymous">
-                    <img src="images/brandShowcase3.JPG" alt="Brand Showcase 3" crossorigin="anonymous">
-                    <img src="images/brandShowcase4.jpg" alt="Brand Showcase 4" crossorigin="anonymous">
-                    <img src="images/brandShowcase5.png" alt="Brand Showcase 5" crossorigin="anonymous">
+                    <img src="images/brandShowcase1.jpg" alt="Brand Showcase 1" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase2.png" alt="Brand Showcase 2" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase3.JPG" alt="Brand Showcase 3" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase4.jpg" alt="Brand Showcase 4" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase5.png" alt="Brand Showcase 5" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase6.jpg" alt="Brand Showcase 6" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase7.jpg" alt="Brand Showcase 7" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
+                    <img src="images/brandShowcase8.jpg" alt="Brand Showcase 8" crossorigin="anonymous" class="scroll-animate" data-animation="luxury-stagger">
                 </div>
             </div>
         </section>
@@ -329,7 +979,7 @@
                     <span>@irinashebeko</span>
                 </a>
             </div>
-            <p>&copy; 2024 Irina Shebeko. All rights reserved.</p>
+            <p>&copy; 2024 Irina Sebeko. All rights reserved.</p>
         </div>
     </footer>
 
