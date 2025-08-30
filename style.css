@@ -929,6 +929,25 @@ footer p {
     opacity: 0.7;
 }
 
+.footer-credit {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.footer-credit a {
+    color: var(--primary-pink) !important;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-credit a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) and (min-width: 769px) {
     .brand-grid {
